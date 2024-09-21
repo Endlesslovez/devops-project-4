@@ -5,7 +5,7 @@ import App from '../../App';
 
 const movieHeading = process.env.FAIL_TEST ? 'WRONG_HEADING' : 'Movie List';
 
-test('renders Movie List heading', () => {
+test('Movie List', () => {
   render(<App />);
   const linkElement = screen.getByText(movieHeading);
   expect(linkElement).toBeInTheDocument();

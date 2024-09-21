@@ -8,9 +8,10 @@ jest.mock('axios');
 const mockMovies = [
   { id: 1, title: 'Movie 1' },
   { id: 2, title: 'Movie 2' },
+  { id: 3, title: 'Movie 3' }
 ];
 
-test('renders movie titles', async () => {
+test('Movie titles', async () => {
   axios.get.mockResolvedValueOnce({ data: { movies: mockMovies } });
 
   const onMovieClick = jest.fn();
@@ -18,12 +19,16 @@ test('renders movie titles', async () => {
 
   const movie1 = await screen.findByText(/Movie 1/);
   const movie2 = await screen.findByText(/Movie 2/);
+  const movie3 = await screen.findByText(/Movie 3/);
+
 
   expect(movie1).toBeInTheDocument();
   expect(movie2).toBeInTheDocument();
+  expect(movie3).toBeInTheDocument();
+
 });
 
-test('calls onMovieClick when movie is clicked', async () => {
+test('Movie is clicked', async () => {
   axios.get.mockResolvedValueOnce({ data: { movies: mockMovies } });
 
   const onMovieClick = jest.fn();
